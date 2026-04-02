@@ -22,8 +22,7 @@ jobs:
         run: npm install
         working-directory: app
       - name: Run tests
-        run: npm test
-        working-directory: app
+        run: ./app/node_modules/.bin/jest tests/app.test.js
 
   build-and-push:
     name: Build and Push Docker Image
