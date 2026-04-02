@@ -1,3 +1,4 @@
+
 # Beginner DevOps Demo Project
 
 This project is a simple, complete demonstration of a DevOps workflow. It includes a containerized web application, automated tests, and a CI/CD pipeline.
@@ -68,7 +69,7 @@ This builds the image and starts the container automatically.
 When you push code to the `main` branch, the following happens:
 
 1. **Trigger**: Push to GitHub.
-2. **Test Phase**: 
+2. **Test Phase**:
    - GitHub Actions starts a clean Ubuntu environment.
    - It installs Node.js and project dependencies.
    - It runs the automated tests (`npm test`).
