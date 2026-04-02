@@ -36,26 +36,26 @@ jobs:
       - name: Build local image
         run: docker build -t devops-demo .
 
-  deploy:
-    name: Deploy to DigitalOcean
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    environment: demo
-    steps:
-      - name: Execute remote SSH commands
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.DO_DROPLET_IP }}
-          username: ${{ secrets.DO_USER }}
-          key: ${{ secrets.DO_SSH_KEY }}
-          passphrase: ${{ secrets.DO_PASSPHRASE }}
-          script: |
-            # Navigate to the project directory
-            cd ~/devops-demo || git clone https://github.com/${{ github.repository }} ~/devops-demo
-            cd ~/devops-demo
-            git pull origin main
-            # Stop any existing containers to free up the port
-            docker compose down --remove-orphans
-            # Restart the containerized app
-            docker compose up -d --build
+  # deploy:
+  #   name: Deploy to DigitalOcean
+  #   needs: build-and-push
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/main'
+  #   environment: demo
+  #   steps:
+  #     - name: Execute remote SSH commands
+  #       uses: appleboy/ssh-action@v1.0.3
+  #       with:
+  #         host: ${{ secrets.DO_DROPLET_IP }}
+  #         username: ${{ secrets.DO_USER }}
+  #         key: ${{ secrets.DO_SSH_KEY }}
+  #         passphrase: ${{ secrets.DO_PASSPHRASE }}
+  #         script: |
+  #           # Navigate to the project directory
+  #           cd ~/devops-demo || git clone https://github.com/${{ github.repository }} ~/devops-demo
+  #           cd ~/devops-demo
+  #           git pull origin main
+  #           # Stop any existing containers to free up the port
+  #           docker compose down --remove-orphans
+  #           # Restart the containerized app
+  #           docker compose up -d --build
