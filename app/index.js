@@ -18,6 +18,12 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/demo', (req, res) => {
+  res.json({
+    message: "Wind up",
+  });
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({
