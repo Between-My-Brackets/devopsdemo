@@ -55,5 +55,7 @@ jobs:
             cd ~/devops-demo || git clone https://github.com/${{ github.repository }} ~/devops-demo
             cd ~/devops-demo
             git pull origin main
+            # Stop any existing containers to free up the port
+            docker compose down --remove-orphans
             # Restart the containerized app
             docker compose up -d --build
