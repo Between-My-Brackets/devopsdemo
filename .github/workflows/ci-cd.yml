@@ -56,4 +56,4 @@ jobs:
             cd ~/devops-demo
             git pull origin main
             # Restart the containerized app
-            docker-compose up -d --build
+            docker compose up -d --build
