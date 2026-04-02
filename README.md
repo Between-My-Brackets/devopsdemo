@@ -47,7 +47,7 @@ cd app
 npm install
 npm start
 ```
-The app will be available at [http://localhost:3000](http://localhost:3000).
+The app will be available at [http://localhost:8080](http://localhost:8080).
 
 ### 3. Run Tests
 ```bash
@@ -69,7 +69,7 @@ This builds the image and starts the container automatically.
 When you push code to the `main` branch, the following happens:
 
 1. **Trigger**: Push to GitHub.
-2. **Test Phase**:
+2. **Test Phase**: 
    - GitHub Actions starts a clean Ubuntu environment.
    - It installs Node.js and project dependencies.
    - It runs the automated tests (`npm test`).
@@ -86,7 +86,7 @@ When you push code to the `main` branch, the following happens:
 - **Continuous Integration (CI)**: Running tests automatically on every push.
 - **Continuous Delivery (CD)**: Automating the creation of a deployable Docker image.
 - **Observability**: Basic logging in `app/index.js` and a `/health` endpoint for monitoring.
-
+- **Deployment**: Automatic SSH deployment to a DigitalOcean Droplet at `http://[YOUR_IP]:8080`.
 ---
 
 ## 📝 Setup Instructions for GitHub Actions

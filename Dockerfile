@@ -13,8 +13,8 @@ RUN npm install --only=production
 # Bundle app source
 COPY app/ .
 
-# Your app binds to port 3000 so you'll use the EXPOSE instruction to have it mapped by the docker daemon
-EXPOSE 3000
+# Your app binds to port 8080 so you'll use the EXPOSE instruction to have it mapped by the docker daemon
+EXPOSE 8080
 
 # Define the command to run your app
 CMD [ "node", "index.js" ]
