@@ -49,6 +49,7 @@ jobs:
           host: ${{ secrets.DO_DROPLET_IP }}
           username: ${{ secrets.DO_USER }}
           key: ${{ secrets.DO_SSH_KEY }}
+          passphrase: ${{ secrets.DO_PASSPHRASE }}
           script: |
             # Navigate to the project directory
             cd ~/devops-demo || git clone https://github.com/${{ github.repository }} ~/devops-demo
